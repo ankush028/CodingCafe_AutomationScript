@@ -22,8 +22,13 @@ public class AddInstitutionTest extends BaseClass {
 	  }
 	  
 	  @Test(priority = 1)
-	  public void addInstituteTest() throws InterruptedException {
-		  addinstitute.addInstitution();
+	  public void addCollegeTest() throws InterruptedException {
+		  addinstitute.addCollege();
+	  }
+	  
+	  @Test(priority = 2)
+	  public void addTrainingInstituteTest() throws InterruptedException {
+		  addinstitute.addTrainingInstitute();
 	  }
 	  
 	  @AfterMethod

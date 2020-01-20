@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="60709" started-at="2020-01-18T10:39:22Z" finished-at="2020-01-18T10:40:23Z">
+  <suite name="Default suite" duration-ms="79497" started-at="2020-01-20T09:39:18Z" finished-at="2020-01-20T09:40:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="60709" started-at="2020-01-18T10:39:22Z" finished-at="2020-01-18T10:40:23Z">
-      <class name="com.bridgelabz.codingcafe.testcases.AddTrainingInstituteTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.bridgelabz.codingcafe.testcases.AddTrainingInstituteTest@e25b2fe]" name="setUp" is-config="true" duration-ms="42308" started-at="2020-01-18T16:09:22Z" finished-at="2020-01-18T16:10:04Z">
+    <test name="Default test" duration-ms="79497" started-at="2020-01-20T09:39:18Z" finished-at="2020-01-20T09:40:37Z">
+      <class name="com.bridgelabz.codingcafe.testcases.LogoutPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.bridgelabz.codingcafe.testcases.LogoutPageTest@e25b2fe]" name="setUp" is-config="true" duration-ms="68956" started-at="2020-01-20T15:09:18Z" finished-at="2020-01-20T15:10:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="addtrainingInstitutetest()[pri:0, instance:com.bridgelabz.codingcafe.testcases.AddTrainingInstituteTest@e25b2fe]" name="addtrainingInstitutetest" duration-ms="18234" started-at="2020-01-18T16:10:04Z" finished-at="2020-01-18T16:10:23Z">
+        <test-method status="PASS" signature="logoutPagetest()[pri:0, instance:com.bridgelabz.codingcafe.testcases.LogoutPageTest@e25b2fe]" name="logoutPagetest" duration-ms="10380" started-at="2020-01-20T15:10:27Z" finished-at="2020-01-20T15:10:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addtrainingInstitutetest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.bridgelabz.codingcafe.testcases.AddTrainingInstituteTest@e25b2fe]" name="tearDown" is-config="true" duration-ms="128" started-at="2020-01-18T16:10:23Z" finished-at="2020-01-18T16:10:23Z">
+        </test-method> <!-- logoutPagetest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.bridgelabz.codingcafe.testcases.LogoutPageTest@e25b2fe]" name="tearDown" is-config="true" duration-ms="132" started-at="2020-01-20T15:10:37Z" finished-at="2020-01-20T15:10:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.bridgelabz.codingcafe.testcases.AddTrainingInstituteTest -->
+      </class> <!-- com.bridgelabz.codingcafe.testcases.LogoutPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

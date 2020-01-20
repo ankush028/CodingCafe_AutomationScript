@@ -15,8 +15,7 @@ public class AddInstitution extends BaseClass{
 	
 	
 	@FindBy(xpath = "//div[@class='addicon']//img")
-	WebElement addIcon;
-	
+	WebElement addIcon;	
 	
 	@FindBy(xpath = "//button[contains(text(),'Institutions')]")
 	WebElement selectInstitute;
@@ -32,7 +31,14 @@ public class AddInstitution extends BaseClass{
 	
 	@FindBy(xpath = "//span[contains(text(),'Cancel')]")
 	WebElement cancel;
-	public void addInstitution() throws InterruptedException {
+	
+	@FindBy(xpath = "//mat-radio-button[@ng-reflect-value='TRAINING_INSTITUTE']")
+	WebElement selectTrainingInst;
+	
+	@FindBy(xpath = "//input[@placeholder='Select institute']")
+	WebElement instituteName;
+	
+	public void addCollege() throws InterruptedException {
 		
 		addIcon.click();
 		Thread.sleep(2000);
@@ -53,6 +59,28 @@ public class AddInstitution extends BaseClass{
 		cancel.click();
 		Thread.sleep(5000);
 	}
-	
+	public void addTrainingInstitute() throws InterruptedException {
+		Thread.sleep(2000);
+		addIcon.click();
+		Thread.sleep(1000);
+		selectInstitute.click();
+		Thread.sleep(1000);
+		selectTrainingInst.click();
+		instituteName.sendKeys(property.getProperty("institute"));
+		Thread.sleep(1000);
+		title.click();
+		address.sendKeys(property.getProperty("address"));
+		List<WebElement> elements = new ArrayList<WebElement>(driver.findElements(By.xpath("//input[@maxlength='15']")));
+		elements.get(0).sendKeys(property.getProperty("short"));
+		Thread.sleep(1000);
+		elements.get(1).sendKeys(property.getProperty("branch"));
+		Thread.sleep(1000);
+		elements.get(2).sendKeys(property.getProperty("city"));
+		Thread.sleep(3000);
+		cancel.click();
+		Thread.sleep(5000);
+		
+	}
+
 	
 }

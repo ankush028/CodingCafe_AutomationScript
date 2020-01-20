@@ -34,7 +34,7 @@ public class LoginPage extends BaseClass{
 		Thread.sleep(3000);
 		List<String> newTab = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(newTab.get(1));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		user.sendKeys(property.getProperty("email"));
 		Thread.sleep(2000);
 		next.click();

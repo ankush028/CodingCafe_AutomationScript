@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.bridgelabz.codingcafe.util.Utility;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
@@ -31,10 +30,7 @@ public class BaseClass {
 				}
 			
 		}
-	
-	/**
-	 * 
-	 */
+
 	public static void initiation() {
 		
 		if(property.getProperty("browser").equals("chrome")){
