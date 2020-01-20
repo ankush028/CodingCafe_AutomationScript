@@ -6,12 +6,16 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-public class Utility  {
+import com.bridgelabz.codingcafe.base.BaseClass;
+
+public class Utility extends BaseClass {
 
 	public static final int pageload=2;
 	public static final int wait =10;
@@ -56,8 +60,27 @@ public class Utility  {
 		robot.keyRelease(KeyEvent.VK_CONTROL);
 		robot.delay(1000);
 		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		
-		
+		robot.keyRelease(KeyEvent.VK_ENTER);		
 	}
+	
+	public static void datePick(Date date) {
+		driver.findElement(By.xpath("//button[@class='mat-icon-button'and@tabindex=-1]")).click();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

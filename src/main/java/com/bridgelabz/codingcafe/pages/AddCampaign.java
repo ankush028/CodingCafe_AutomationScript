@@ -1,7 +1,13 @@
 package com.bridgelabz.codingcafe.pages;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import org.joda.time.DateTime;
+import org.joda.time.Months;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,8 +45,10 @@ public class AddCampaign extends BaseClass{
 	WebElement resultPageTemplate;
 	
 	
+	@FindBy(xpath = "//button[@aria-label='Next month']")
+	WebElement nextMonth;
 	
-	public void onlineCampaign() throws InterruptedException {
+	public void onlineCampaign() throws InterruptedException, ParseException {
 		addIcon.click();
 		Thread.sleep(1000);
 		selectCampaign.click();
@@ -48,7 +56,37 @@ public class AddCampaign extends BaseClass{
 		campaignPurpose.click();
 		Thread.sleep(1000);
 		selectMCQ.click();
-		Thread.sleep(1000);		
+		Thread.sleep(2000);	
+		
+		List<WebElement> dates = new ArrayList<WebElement>(driver.findElements(By.xpath("//button[@type='button']")));
+		Thread.sleep(1000);	
+		dates.get(0).click();
+		String currDateStr = driver.findElement(By.xpath("//span[contains(text(),'01/2020')]")).getText();
+		System.out.println(currDateStr);
+		String setDateStr = property.getProperty("date");
+		
+		Date setDate= new SimpleDateFormat("dd/MM/yyyy").parse(setDateStr);
+		System.out.println(setDate);
+		Date currDate = new SimpleDateFormat("MM/yyyy").parse(currDateStr);
+		System.out.println(currDate);
+		int monthdiff = Months.monthsBetween(new DateTime(currDate).withDayOfMonth(1),new DateTime(setDate)
+				.withDayOfMonth(1)).getMonths();
+		System.out.println(monthdiff);
+
+		
+		if(monthdiff<0) {
+			monthdiff=-1*monthdiff;
+		}
+		String day = new SimpleDateFormat("dd").format(setDate);
+		
+		for (int i=0;i<monthdiff;i++) {
+	
+				driver.findElement(By.xpath("//button[@aria-label='Next month']")).click();
+	
+		}	
+		System.out.println(currDateStr);
+		System.out.println(day);
+	
 		List<WebElement> elements = new ArrayList<WebElement>(driver.findElements(By.xpath("//input[@autocomplete='off']")));
 		
 		elements.get(1).sendKeys(property.getProperty("campaignName"));

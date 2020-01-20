@@ -2,7 +2,6 @@ package com.bridgelabz.codingcafe.testcases;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.bridgelabz.codingcafe.base.BaseClass;
 import com.bridgelabz.codingcafe.pages.LoginPage;
 import com.bridgelabz.codingcafe.pages.Registration;
@@ -26,5 +25,7 @@ public class RegistrationTest extends BaseClass{
 	public void registerTest() throws InterruptedException {
 		register.registration();
 	}
+	
+
 	
 }
