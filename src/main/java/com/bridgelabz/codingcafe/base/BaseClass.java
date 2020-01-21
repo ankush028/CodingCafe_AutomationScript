@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.bridgelabz.codingcafe.util.Utility;
+import com.bridgelabz.codingcafe.util.Generics;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
@@ -16,8 +16,7 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static Properties property;
 	public static WebDriverWait wait;
-
-
+	
 		public BaseClass() 	{
 		FileInputStream fis;
 			property = new Properties();		
@@ -45,8 +44,8 @@ public class BaseClass {
 			
 		driver.manage().window().maximize();	
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(Utility.pageload,TimeUnit.MINUTES);
-		driver.manage().timeouts().implicitlyWait(Utility.wait,TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Generics.pageload,TimeUnit.MINUTES);
+		driver.manage().timeouts().implicitlyWait(Generics.wait,TimeUnit.SECONDS);
 		driver.get(property.getProperty("Url"));
 		
 		

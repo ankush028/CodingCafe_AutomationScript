@@ -1,20 +1,20 @@
 package com.bridgelabz.codingcafe.pages;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import org.joda.time.DateTime;
-import org.joda.time.Months;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.bridgelabz.codingcafe.base.BaseClass;
+import org.testng.annotations.Listeners;
 
-public class AddCampaign extends BaseClass{
+import com.bridgelabz.codingcafe.base.BaseClass;
+import com.bridgelabz.codingcafe.util.CustomListener;
+import com.bridgelabz.codingcafe.util.Generics;
+import com.bridgelabz.codingcafe.util.Utility;
+@Listeners(CustomListener.class)
+public class AddCampaign extends BaseClass implements Generics{
 	
 	public AddCampaign() {
 		PageFactory.initElements(driver,this);
@@ -60,65 +60,53 @@ public class AddCampaign extends BaseClass{
 		
 		List<WebElement> dates = new ArrayList<WebElement>(driver.findElements(By.xpath("//button[@type='button']")));
 		Thread.sleep(1000);	
-		dates.get(0).click();
+		dates.get(index_0).click();	
+		Thread.sleep(1000);
 		String currDateStr = driver.findElement(By.xpath("//span[contains(text(),'01/2020')]")).getText();
-		System.out.println(currDateStr);
-		String setDateStr = property.getProperty("date");
-		
-		Date setDate= new SimpleDateFormat("dd/MM/yyyy").parse(setDateStr);
-		System.out.println(setDate);
-		Date currDate = new SimpleDateFormat("MM/yyyy").parse(currDateStr);
-		System.out.println(currDate);
-		int monthdiff = Months.monthsBetween(new DateTime(currDate).withDayOfMonth(1),new DateTime(setDate)
-				.withDayOfMonth(1)).getMonths();
-		System.out.println(monthdiff);
-
-		
-		if(monthdiff<0) {
-			monthdiff=-1*monthdiff;
+		int monthdiff = Utility.monthDifference(property.getProperty("startDate"),currDateStr);		
+		for (int i=0;i<monthdiff;i++) {	
+				driver.findElement(By.xpath("//button[@aria-label='Next month']")).click();	
 		}
-		String day = new SimpleDateFormat("dd").format(setDate);
+		driver.findElement(By.xpath("//div[contains(text(),"+Utility.day()+")]")).click();
+		Thread.sleep(2000);
+		dates.get(index_1).click();
+		int endDateMonthDiff=Utility.monthDifference(property.getProperty("endDate"),driver.findElement(By.xpath("//span[contains(text(),'07/2021')]")).getText());
+		for(int i=0;i<endDateMonthDiff;i++) {
+			driver.findElement(By.xpath("//button[@aria-label='Next month']")).click();
+		}
+		driver.findElement(By.xpath("//div[contains(text(),"+Utility.day()+")]")).click();;
 		
-		for (int i=0;i<monthdiff;i++) {
-	
-				driver.findElement(By.xpath("//button[@aria-label='Next month']")).click();
-	
-		}	
-		System.out.println(currDateStr);
-		System.out.println(day);
-	
 		List<WebElement> elements = new ArrayList<WebElement>(driver.findElements(By.xpath("//input[@autocomplete='off']")));
 		
-		elements.get(1).sendKeys(property.getProperty("campaignName"));
+		elements.get(index_1).sendKeys(property.getProperty("campaignName"));
 		 Thread.sleep(1000); 
-		elements.get(2).sendKeys(property.getProperty("creator"));
+		elements.get(index_2).sendKeys(property.getProperty("creator"));
 		 Thread.sleep(1000); 
-		elements.get(3).sendKeys(property.getProperty("short"));
+		elements.get(index_3).sendKeys(property.getProperty("short"));
 		 Thread.sleep(1000); 
-		elements.get(6).sendKeys("20");
+		elements.get(index_6).sendKeys(attempts);
 		 Thread.sleep(1000); 
-		elements.get(8).sendKeys("01");
+		elements.get(index_8).sendKeys(hrs);
 		 Thread.sleep(1000); 
-		elements.get(9).sendKeys("30");
+		elements.get(index_9).sendKeys(minutes);
 		 Thread.sleep(1000); 
-		elements.get(10).sendKeys("01");
+		elements.get(index_10).sendKeys(hrs);
 		 Thread.sleep(1000); 
-		elements.get(11).sendKeys("30");
+		elements.get(index_11).sendKeys(minutes);
 		 Thread.sleep(1000); 
-		elements.get(12).sendKeys("40");
+		elements.get(index_12).sendKeys(passPercent);
 		 Thread.sleep(3000); 
-		List<WebElement> listBoxes= new ArrayList<WebElement>(driver.findElements(By.xpath("//mat-select[@role='listbox']")));
-		
-		listBoxes.get(1).click();
+		List<WebElement> listBoxes= new ArrayList<WebElement>(driver.findElements(By.xpath("//mat-select[@role='listbox']")));	
+		listBoxes.get(index_1).click();
 		fellowship.click(); 
 		Thread.sleep(1000); 
-		listBoxes.get(2).click();
+		listBoxes.get(index_2).click();
 		extraInfo.click();
 		Thread.sleep(1000);
-		listBoxes.get(3).click();
+		listBoxes.get(index_3).click();
 		landPageTemplate.click();
 		Thread.sleep(1000); 
-		listBoxes.get(4).click();;  
+		listBoxes.get(index_4).click();;  
 		resultPageTemplate.click();
 		
 		Thread.sleep(5000);

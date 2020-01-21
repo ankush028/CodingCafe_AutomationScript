@@ -6,9 +6,13 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.bridgelabz.codingcafe.base.BaseClass;
+import org.testng.annotations.Listeners;
 
-public class LoginPage extends BaseClass{
+import com.bridgelabz.codingcafe.base.BaseClass;
+import com.bridgelabz.codingcafe.util.CustomListener;
+import com.bridgelabz.codingcafe.util.Generics;
+@Listeners(CustomListener.class)
+public class LoginPage extends BaseClass implements Generics{
 	
 	public LoginPage() {
 		PageFactory.initElements(driver,this);
@@ -31,19 +35,19 @@ public class LoginPage extends BaseClass{
 	
 	public void login() throws InterruptedException {
 		googleLogin.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		List<String> newTab = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(newTab.get(1));
-		Thread.sleep(2000);
+		driver.switchTo().window(newTab.get(index_1));
+		Thread.sleep(1000);
 		user.sendKeys(property.getProperty("email"));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		next.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		password.sendKeys(property.getProperty("password"));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		next.click();
-		Thread.sleep(4000);
-		driver.switchTo().window(newTab.get(0));
+		Thread.sleep(2000);
+		driver.switchTo().window(newTab.get(index_0));
 		Thread.sleep(3000);
 		
 	}	

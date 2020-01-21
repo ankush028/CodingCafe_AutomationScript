@@ -6,9 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import com.bridgelabz.codingcafe.base.BaseClass;
+import org.testng.annotations.Listeners;
 
-public class AddInstitution extends BaseClass{
+import com.bridgelabz.codingcafe.base.BaseClass;
+import com.bridgelabz.codingcafe.util.CustomListener;
+import com.bridgelabz.codingcafe.util.Generics;
+@Listeners(CustomListener.class)
+public class AddInstitution extends BaseClass implements Generics{
 	 public AddInstitution() {
 		 PageFactory.initElements(driver,this);
 	}
@@ -50,11 +54,11 @@ public class AddInstitution extends BaseClass{
 		address.sendKeys(property.getProperty("address"));
 		Thread.sleep(1000);
 		List<WebElement> elements = new ArrayList<WebElement>(driver.findElements(By.xpath("//input[@maxlength='15']")));
-		elements.get(0).sendKeys(property.getProperty("short"));
+		elements.get(index_0).sendKeys(property.getProperty("short"));
 		Thread.sleep(1000);
-		elements.get(1).sendKeys(property.getProperty("branch"));
+		elements.get(index_1).sendKeys(property.getProperty("branch"));
 		Thread.sleep(1000);
-		elements.get(2).sendKeys(property.getProperty("city"));
+		elements.get(index_2).sendKeys(property.getProperty("city"));
 		Thread.sleep(3000);
 		cancel.click();
 		Thread.sleep(5000);
@@ -71,11 +75,11 @@ public class AddInstitution extends BaseClass{
 		title.click();
 		address.sendKeys(property.getProperty("address"));
 		List<WebElement> elements = new ArrayList<WebElement>(driver.findElements(By.xpath("//input[@maxlength='15']")));
-		elements.get(0).sendKeys(property.getProperty("short"));
+		elements.get(index_0).sendKeys(property.getProperty("short"));
 		Thread.sleep(1000);
-		elements.get(1).sendKeys(property.getProperty("branch"));
+		elements.get(index_1).sendKeys(property.getProperty("branch"));
 		Thread.sleep(1000);
-		elements.get(2).sendKeys(property.getProperty("city"));
+		elements.get(index_2).sendKeys(property.getProperty("city"));
 		Thread.sleep(3000);
 		cancel.click();
 		Thread.sleep(5000);

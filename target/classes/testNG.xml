@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Coding Cafe Application Automation Script">
+
+  	<listeners>
+		<listener
+			class-name="com.bridgelabz.codingcafe.reports.ExtentReport"></listener>
+	</listeners>
+	<test name="Coding Cafe Test Cases">
+		<classes>
+			<class name="com.bridgelabz.codingcafe.testcases.RegistrationTest"></class>
+			<class name="com.bridgelabz.codingcafe.testcases.AddCampaignTest"></class>
+			<class name="com.bridgelabz.codingcafe.testcases.AddInstitutionTest"></class>
+			<class name="com.bridgelabz.codingcafe.testcases.QuestionFormatTest"></class>
+			<class name="com.bridgelabz.codingcafe.testcases.LogoutPageTest"></class>
+			<class name="com.bridgelabz.codingcafe.testcases.LoginPageTest"></class>
+		</classes>
+	</test>
+</suite> 

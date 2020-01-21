@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.bridgelabz.codingcafe.testcases.AddCampaignTest">
+      <class name="com.bridgelabz.codingcafe.testcases.RegistrationTest">
         <methods>
-          <include name="setUp"/>
-          <include name="onlineCampaignTest"/>
+          <include name="registerTest"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.bridgelabz.codingcafe.testcases.AddCampaignTest -->
+      </class> <!-- com.bridgelabz.codingcafe.testcases.RegistrationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

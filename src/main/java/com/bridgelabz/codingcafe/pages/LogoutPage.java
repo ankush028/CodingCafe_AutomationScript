@@ -3,9 +3,11 @@ package com.bridgelabz.codingcafe.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 
 import com.bridgelabz.codingcafe.base.BaseClass;
-
+import com.bridgelabz.codingcafe.util.CustomListener;
+@Listeners(CustomListener.class)
 public class LogoutPage extends BaseClass{
 	
 	public LogoutPage() {

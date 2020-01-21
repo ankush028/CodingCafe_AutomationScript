@@ -6,30 +6,28 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
+import org.joda.time.DateTime;
+import org.joda.time.Months;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import com.bridgelabz.codingcafe.base.BaseClass;
 
 public class Utility extends BaseClass {
 
-	public static final int pageload=2;
-	public static final int wait =10;
-	public static final int pageNo=1;
 	public static Robot robot;
-//	public static JavascriptExecutor js ;
+	public static Date setDate;
 	
 	public static void captureScreenShot(WebDriver driver,String screenShotName) {
 		
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File src = ts.getScreenshotAs(OutputType.FILE);	
 		try {
-			FileUtils.copyFile(src,new File("/home/admin1/Desktop/JavaAdvanced/"
-					+ "Linkedin/FailedTestScreenShot"+"/"+screenShotName+".png"));
+			FileUtils.copyFile(src,new File("/home/admin1/Desktop/JavaAdvanced/CodingCafe/FailedTestScreenShot"+"/"+screenShotName+".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -63,10 +61,22 @@ public class Utility extends BaseClass {
 		robot.keyRelease(KeyEvent.VK_ENTER);		
 	}
 	
-	public static void datePick(Date date) {
-		driver.findElement(By.xpath("//button[@class='mat-icon-button'and@tabindex=-1]")).click();
+	public static int monthDifference(String setDateStr,String currDateStr) throws ParseException {
+		setDate= new SimpleDateFormat("dd/MM/yyyy").parse(setDateStr);
+		Date currDate = new SimpleDateFormat("MM/yyyy").parse(currDateStr);
+		int monthdiff = Months.monthsBetween(new DateTime(currDate).withDayOfMonth(1),new DateTime(setDate)
+				.withDayOfMonth(1)).getMonths();
+		
+		if(monthdiff<0) {
+			monthdiff=-1*monthdiff;
+			return monthdiff;
+		}
+		return monthdiff;
 	}
-	
+	public static String day() {
+		
+		return new SimpleDateFormat("dd").format(setDate);
+	}
 	
 	
 	

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Coding Cafe Application Automation Script]">
+  <listeners>
+    <listener class-name="com.bridgelabz.codingcafe.reports.ExtentReport"/>
+  </listeners>
+  <test name="Coding Cafe Test Cases(failed)">
+    <classes>
+      <class name="com.bridgelabz.codingcafe.testcases.RegistrationTest">
+        <methods>
+          <include name="registerTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.bridgelabz.codingcafe.testcases.RegistrationTest -->
+      <class name="com.bridgelabz.codingcafe.testcases.QuestionFormatTest">
+        <methods>
+          <include name="testFormatTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.bridgelabz.codingcafe.testcases.QuestionFormatTest -->
+    </classes>
+  </test> <!-- Coding Cafe Test Cases(failed) -->
+</suite> <!-- Failed suite [Coding Cafe Application Automation Script] -->
