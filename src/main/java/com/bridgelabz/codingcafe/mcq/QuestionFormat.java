@@ -46,11 +46,11 @@ public class QuestionFormat extends BaseClass implements Generics{
 		Thread.sleep(1000);
 		checkBox.get(index_1).click();
 		testType.click();
-		elements.get(index_2).sendKeys("10");
-		elements.get(index_3).sendKeys("50");
-		elements.get(index_4).sendKeys("20");
-		elements.get(index_5).sendKeys("20");
-		elements.get(index_6).sendKeys("100");
+		elements.get(index_2).sendKeys(easyQuePercent);
+		elements.get(index_3).sendKeys(mediumQuePercent);
+		elements.get(index_4).sendKeys(hardQuePercent);
+		elements.get(index_5).sendKeys(veryHardPercent);
+		elements.get(index_6).sendKeys(programmingQuePercent);
 		timeDuration.click();
 		testJava.click();
 		Thread.sleep(6000);
